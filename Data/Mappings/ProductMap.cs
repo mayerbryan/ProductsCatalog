@@ -4,37 +4,46 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProductsCatalog.Models;
 
-namespace ProductsCatalog.Data.Mappings{
-    
-    public class ProductMap : IEntityTypeConfiguration<ProductModel>
+namespace ProductsCatalog.Data.Mappings
 {
-    public void Configure(EntityTypeBuilder<ProductModel> builder)
+
+    public class ProductMap : IEntityTypeConfiguration<ProductModel>
     {
-        builder.ToTable("Product");
+        public void Configure(EntityTypeBuilder<ProductModel> builder)
+        {
+            builder.ToTable("Product");
 
-        builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.Id)
-            .ValueGeneratedOnAdd();
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd();
 
-        builder.Property(x => x.Name)
+            builder.Property(x => x.Name)
+                .IsRequired()
+                .HasColumnName("Name")
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(1500);
+
+            builder.Property(x => x.SKU)
             .IsRequired()
-            .HasColumnName("Name")
-            .HasColumnType("NVARCHAR")
-            .HasMaxLength(1500);
+            .HasColumnName("")
+            .HasColumnType("")
+            .HasMaxLength(255);
 
-        builder.Property(x => x.Price)
-            .IsRequired()
-            .HasColumnName("Price")
-            .HasColumnType("DECIMAL");
+            builder.HasIndex(x => x.SKU, "IX_Product_Name").IsUnique();
 
-        builder.Property(x => x.Description)
-            .IsRequired()
-            .HasColumnName("Description")
-            .HasColumnType("MEDIUMTEXT");
+            builder.Property(x => x.Price)
+                .IsRequired()
+                .HasColumnName("Price")
+                .HasColumnType("DECIMAL");
 
-        builder.HasIndex(x => x.Name, "IX_Product_Name");
+            builder.Property(x => x.Description)
+                .IsRequired()
+                .HasColumnName("Description")
+                .HasColumnType("MEDIUMTEXT");
 
+            builder.HasIndex(x => x.Name, "IX_Product_Name");
+
+        }
     }
 }
-    }
