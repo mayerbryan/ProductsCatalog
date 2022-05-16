@@ -1,6 +1,6 @@
+C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\ProductsCatalog.exe
 C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\appsettings.json
-C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\ProductsCatalog.exe
 C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\ProductsCatalog.deps.json
 C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\ProductsCatalog.runtimeconfig.json
 C:\Users\Mayer\Documents\Dev\Projects\ProductsCatalog\bin\Debug\net6.0\ProductsCatalog.dll
