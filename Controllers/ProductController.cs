@@ -5,11 +5,9 @@ using ProductsCatalog.Models;
 namespace ProductsCatalog.Controllers{
     [ApiController]
     
-    public class HomeController : ControllerBase {
-       
-              
+    public class ProductController : ControllerBase { 
 
-        [HttpPost("/")]        
+        [HttpPost("/v1/products")]        
         public IActionResult Post( 
             [FromBody] ProductModel Product, 
             [FromServices] AppDbContext context ){
