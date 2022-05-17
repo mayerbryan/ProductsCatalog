@@ -7,19 +7,16 @@ namespace ProductsCatalog.Controllers{
     
     public class HomeController : ControllerBase {
        
-        [HttpGet("/get")]        
-        public List<ProductModel> Get( [FromServices] AppDbContext context ){
-            return context.Product.ToList();
-        }
+              
 
-        [HttpPost("/post")]        
-        public ProductModel Post( 
-            [FromBody]ProductModel Product, 
+        [HttpPost("/")]        
+        public IActionResult Post( 
+            [FromBody] ProductModel Product, 
             [FromServices] AppDbContext context ){
                 
             context.Product.Add(Product);
             context.SaveChanges();
-            return Product;
+            return Created("/{Product.Id}", Product);
         }
     }
 }
