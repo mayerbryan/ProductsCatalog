@@ -55,3 +55,35 @@ Exemplo de resposta:
     "Description": "Produto de teste"
 }
 ```
+
+## Listar todos os produtos
+Rota: `/v1/products`
+Método: `GET`
+```
+Exemplo de resposta:
+```
+{
+    "Id": 1,
+    "Name": "Produto teste",
+    "SKU": "UTV12U1D2",
+    "Price": "12.99",
+    "Description": "Produto de teste"
+}
+```
+
+## Listar produtos pelo Id
+Rota: `/v1/products/{int:id}`
+Método: `GET`
+```
+Exemplo de resposta:
+```
+{
+    "Id": 1,
+    "Name": "Produto teste",
+    "SKU": "UTV12U1D2",
+    "Price": "12.99",
+    "Description": "Produto de teste"
+}
+```
+
+
