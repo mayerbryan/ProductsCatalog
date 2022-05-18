@@ -1,4 +1,5 @@
 
+
 # Catálogo  de Produtos
 Projeto de API criado usando ASP.Net
 
@@ -46,7 +47,7 @@ Exemplo do corpo requisição para criar um novo produto:
 }
 ```
 Exemplo de resposta:
-```
+```json
 {
     "Id": 1,
     "Name": "Produto teste",
@@ -59,9 +60,9 @@ Exemplo de resposta:
 ## Listar todos os produtos
 Rota: `/v1/products`
 Método: `GET`
-```
+
 Exemplo de resposta:
-```
+```json
 {
     "Id": 1,
     "Name": "Produto teste",
@@ -74,9 +75,9 @@ Exemplo de resposta:
 ## Listar produtos pelo Id
 Rota: `/v1/products/{int:id}`
 Método: `GET`
-```
+
 Exemplo de resposta:
-```
+```json
 {
     "Id": 1,
     "Name": "Produto teste",
@@ -85,5 +86,3 @@ Exemplo de resposta:
     "Description": "Produto de teste"
 }
 ```
-
-
