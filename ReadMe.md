@@ -86,3 +86,18 @@ Exemplo de resposta:
     "Description": "Produto de teste"
 }
 ```
+
+## Atualizar produtos pelo Id
+Rota: `/v1/products/{int:id}`
+Método: `PUT`
+
+Exemplo do corpo requisição para atualizar um novo produto:
+```json
+{
+    "Name": "Produto teste",
+    "SKU": "UTV12U1D2",
+    "Price": "12.99",
+    "Description": "Produto de teste"
+}
+```
+
