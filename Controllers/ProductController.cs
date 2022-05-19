@@ -34,5 +34,25 @@ namespace ProductsCatalog.Controllers{
             
             return Ok(Product);
         } 
+
+        [HttpPut("/v1/products/{id:int}")]        
+        public IActionResult Put( 
+            [FromRoute] int id, 
+            [FromBody] ProductModel Product,
+            [FromServices] AppDbContext context ){              
+            
+            var model = context.Product.FirstOrDefault(x => x.Id == id);
+            if(model == null)
+                return NotFound();
+
+            model.Name = Product.Name;
+            model.Price = Product.Price;
+            model.SKU = Product.SKU;
+            model.Description = Product.Description;
+
+            context.Product.Update(model);
+            context.SaveChanges(); 
+            return Ok(model);
+        } 
     }
 }

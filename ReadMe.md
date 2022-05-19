@@ -46,7 +46,7 @@ Exemplo do corpo requisição para criar um novo produto:
 }
 ```
 Exemplo de resposta:
-```
+```json
 {
     "Id": 1,
     "Name": "Produto teste",
@@ -59,9 +59,9 @@ Exemplo de resposta:
 ## Listar todos os produtos
 Rota: `/v1/products`
 Método: `GET`
-```
+
 Exemplo de resposta:
-```
+```json
 {
     "Id": 1,
     "Name": "Produto teste",
@@ -74,9 +74,9 @@ Exemplo de resposta:
 ## Listar produtos pelo Id
 Rota: `/v1/products/{int:id}`
 Método: `GET`
-```
+
 Exemplo de resposta:
-```
+```json
 {
     "Id": 1,
     "Name": "Produto teste",
@@ -86,4 +86,16 @@ Exemplo de resposta:
 }
 ```
 
+## Atualizar produtos pelo Id
+Rota: `/v1/products/{int:id}`
+Método: `PUT`
 
+Exemplo do corpo requisição para atualizar um novo produto:
+```json
+{
+    "Name": "Produto teste",
+    "SKU": "UTV12U1D2",
+    "Price": "12.99",
+    "Description": "Produto de teste"
+}
+```
