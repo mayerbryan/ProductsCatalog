@@ -99,3 +99,7 @@ Exemplo do corpo requisição para atualizar um novo produto:
     "Description": "Produto de teste"
 }
 ```
+
+## Deletar produtos pelo Id
+Rota: `/v1/products/{int:id}`
+Método: `Delete`
