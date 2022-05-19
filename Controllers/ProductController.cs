@@ -54,5 +54,19 @@ namespace ProductsCatalog.Controllers{
             context.SaveChanges(); 
             return Ok(model);
         } 
+
+        [HttpDelete("/v1/products/{id:int}")]        
+        public IActionResult Delete( 
+            [FromRoute] int id, 
+            [FromServices] AppDbContext context ){              
+            
+            var model = context.Product.FirstOrDefault(x => x.Id == id);
+            if(model == null)
+                return NotFound();
+
+            context.Product.Remove(model);
+            context.SaveChanges(); 
+            return Ok(model);
+        }
     }
 }
