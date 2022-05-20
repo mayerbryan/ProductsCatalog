@@ -104,3 +104,5 @@ Exemplo do corpo requisição para atualizar um novo produto:
 ## Deletar produtos pelo Id
 Rota: `/v1/products/{int:id}`
 Método: `Delete`
+
+Basic catalog products for back end study version 1
