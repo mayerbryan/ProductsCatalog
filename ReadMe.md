@@ -7,18 +7,40 @@ Projeto de API criado usando ASP.Net
 
 - Instalar Visual Studio ou Visual Studio Code https://visualstudio.microsoft.com/pt-br/downloads/
 - Instalar DotNet Runtime https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime
-- Instalar o `dotnet-ef`:
+- Instalar o Docker https://docs.docker.com/desktop/windows/install/
+- Instalar o Postman https://www.postman.com/downloads/
+
+
+## Inicializando o Banco de Dados
+Este app utiliza SQL Server para armazenar os dados durante o desenvolvimento.
+Abra o Docker que foi instalado anteriormente e deixe o mesmo em execução
+Inicialize o CMD ou PowerShell
+Navegue até o local onde foi salvo o projeto e execute o seguinte comando:
+```
+docker pull mcr.microsoft.com/mssql/server:2019-latest
+```
+Deverá retornar: Status: Downloaded newer image for mcr.microsoft.com/mssql/server:2019-latest
+
+Para inicializar o container que irá guardar as informações utilize o comando:
+
+'''
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@sswrod1234' -p 1433:1433 --ProductsCatalogDB -d mcr.microsoft.com/mssql/server:2019-latest
+'''
+
+## Instalando componentes necessarios para o funcionamento da aplicação:
+Após o download do projeto abra o CMD ou PowerShell
+Navegue até a pasta onde esta localizado o projeto
+- Instale o `dotnet-ef` / 'EF SqlServer' / 'EF Design' usando os seguintes comandos:
+
 ```
 dotnet tool install --global dotnet-ef
 ```
-- Instalar o Postman https://www.postman.com/downloads/
-
-## Executando as migrações
-Este app utiliza SQL lite para armazenar os dados durante o desenvolvimento. Para executar as migrações utilize o seguinte comando:
 ```
-dotnet ef database update
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 ```
-Um arquivo chamado `app.db` será criado com o banco SQL lite.
+```
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
 
 ## Executando a aplicação
 Para iniciar a aplicação, execute o seguinte comando no terminal:
