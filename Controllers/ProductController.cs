@@ -21,7 +21,11 @@ namespace ProductsCatalog.Controllers{
         public IActionResult Get( [FromServices] AppDbContext context )
             => Ok (context.Product.ToList());
 
-        
+        [HttpGet("/test")]
+        public IActionResult Gettest([FromServices] AppDbContext context)
+            => Ok("test");
+
+
 
         [HttpGet("/v1/products/{id:int}")]        
         public IActionResult GetById( 
