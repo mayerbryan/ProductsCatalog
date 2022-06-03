@@ -24,7 +24,7 @@ Deverá retornar: Status: Downloaded newer image for mcr.microsoft.com/mssql/ser
 Para inicializar o container que irá guardar as informações utilize o comando:
 
 '''
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@sswrod1234' -p 1433:1433 --ProductsCatalogDB -d mcr.microsoft.com/mssql/server:2019-latest
+docker-compose up
 '''
 
 ## Instalando componentes necessarios para o funcionamento da aplicação:
