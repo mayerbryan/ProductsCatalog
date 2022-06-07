@@ -4,13 +4,9 @@ using ProductsCatalog.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var server = builder.Configuration["DbServer"] ?? "localhost";
-var port = builder.Configuration["DbPort"] ?? "1433";
-var user = builder.Configuration["DbUser"] ?? "SA";
-var password = builder.Configuration["Password"] ?? "P@ssword1234";
-var database = builder.Configuration["Database"] ?? "ProductsCatalogDB";
+DotNetEnv.Env.Load();
 
-var connectionString = $"Server={server}, {port}; Initial Catalog={database};User ID={user}; Password={password}";
+var connectionString = $"Server={Environment.GetEnvironmentVariable("SERVER")}, {Environment.GetEnvironmentVariable("DATABASE_PORT")};User ID={Environment.GetEnvironmentVariable("DATABASE_USER")}; Password={Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(connectionString));

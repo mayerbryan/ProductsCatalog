@@ -24,8 +24,8 @@ namespace ProductsCatalog.Data.Mappings
 
             builder.Property(x => x.SKU)
             .IsRequired()
-            .HasColumnName("")
-            .HasColumnType("")
+            .HasColumnName("SKU")
+            .HasColumnType("NVARCHAR")
             .HasMaxLength(255);
 
             builder.HasIndex(x => x.SKU, "IX_Product_Name").IsUnique();
