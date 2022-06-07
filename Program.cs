@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 DotNetEnv.Env.Load();
 
-var connectionString = $"Server={Environment.GetEnvironmentVariable("SERVER")}, {Environment.GetEnvironmentVariable("DATABASE_PORT")};User ID={Environment.GetEnvironmentVariable("DATABASE_USER")}; Password={Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}";
+var connectionString = $"Server={Environment.GetEnvironmentVariable("SERVER")}, {Environment.GetEnvironmentVariable("DATABASE_PORT")}; Initial Catalog={Environment.GetEnvironmentVariable("DATABASE_NAME")};User ID={Environment.GetEnvironmentVariable("DATABASE_USER")}; Password={Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 options.UseSqlServer(connectionString));
@@ -17,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>();
 var app = builder.Build();
 
 DatabaseManagementService.MigrationInitialisation(app);
+
 
 app.MapControllers();
 

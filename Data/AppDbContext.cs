@@ -11,5 +11,7 @@ namespace ProductsCatalog.Data{
 
         public DbSet<ProductModel> Product { get; set; }
 
+        public DbSet<UserModel> User { get; set; }
+
     }
 }

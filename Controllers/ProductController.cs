@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
+using ProductsCatalog.Attributes;
 using ProductsCatalog.Data;
 using ProductsCatalog.Models;
 
-namespace ProductsCatalog.Controllers{
+namespace ProductsCatalog.Controllers {
     [ApiController]
     
     public class ProductController : ControllerBase { 
 
-        [HttpPost("/v1/products")]        
-        public IActionResult Post( 
+        [HttpPost("/v1/products")]
+        [ApiKey]
+        public IActionResult Post(            
             [FromBody] ProductModel Product, 
             [FromServices] AppDbContext context ){
                 
@@ -34,7 +36,8 @@ namespace ProductsCatalog.Controllers{
             return Ok(Product);
         } 
 
-        [HttpPut("/v1/products/{id:int}")]        
+        [HttpPut("/v1/products/{id:int}")]
+        [ApiKey]
         public IActionResult Put( 
             [FromRoute] int id, 
             [FromBody] ProductModel Product,
@@ -54,7 +57,8 @@ namespace ProductsCatalog.Controllers{
             return Ok(model);
         } 
 
-        [HttpDelete("/v1/products/{id:int}")]        
+        [HttpDelete("/v1/products/{id:int}")]
+        [ApiKey]
         public IActionResult Delete( 
             [FromRoute] int id, 
             [FromServices] AppDbContext context ){              
